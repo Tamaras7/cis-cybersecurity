@@ -12,19 +12,22 @@ function App() {
 
   const [topicData, setTopicData] = useState(null);
 
+  // ✅ Use a single constant for the backend URL
+  const API_BASE = "https://cis-cybersecurity.onrender.com/api";
+
   // Fetch catalog
   useEffect(() => {
-    fetch("http://cis-cybersecurity-backend.local:5000/api")
+    fetch(`${API_BASE}`)
       .then(res => res.json())
       .then(data => setTopics(data.availableTopics))
       .catch(err => console.error("Error fetching catalog:", err));
 
-    fetch("http://cis-cybersecurity-backend.local:5000/api/cis-summary")
+    fetch(`${API_BASE}/cis-summary`)
       .then(res => res.json())
       .then(data => setCisSummaryTopics(data.availableTopics))
       .catch(err => console.error("Error fetching CIS summary catalog:", err));
 
-    fetch("http://cis-cybersecurity-backend.local:5000/api/cis-advantages")
+    fetch(`${API_BASE}/cis-advantages`)
       .then(res => res.json())
       .then(data => setCisAdvantageTopics(data.availableTopics))
       .catch(err => console.error("Error fetching CIS advantages catalog:", err));
@@ -33,7 +36,7 @@ function App() {
   // Fetch topic when selected
   useEffect(() => {
     if (selectedTopic) {
-      fetch(`http://cis-cybersecurity-backend.local:5000/api/${selectedTopic}`)
+      fetch(`${API_BASE}/${selectedTopic}`)
         .then(res => res.json())
         .then(data => setTopicData(data))
         .catch(err => console.error("Error fetching topic:", err));
@@ -43,7 +46,7 @@ function App() {
   // Fetch CIS Summary company
   useEffect(() => {
     if (selectedSummary) {
-      fetch(`http://cis-cybersecurity-backend.local:5000/api/cis-summary/${selectedSummary}`)
+      fetch(`${API_BASE}/cis-summary/${selectedSummary}`)
         .then(res => res.json())
         .then(data => setTopicData(data))
         .catch(err => console.error("Error fetching CIS summary topic:", err));
@@ -53,7 +56,7 @@ function App() {
   // Fetch CIS Advantage company
   useEffect(() => {
     if (selectedAdvantage) {
-      fetch(`http://cis-cybersecurity-backend.local:5000/api/cis-advantages/${selectedAdvantage}`)
+      fetch(`${API_BASE}/cis-advantages/${selectedAdvantage}`)
         .then(res => res.json())
         .then(data => setTopicData(data))
         .catch(err => console.error("Error fetching CIS advantage topic:", err));
