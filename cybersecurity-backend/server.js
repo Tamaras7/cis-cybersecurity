@@ -3,8 +3,12 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-  origin: "http://cis-cybersecurity.local:3000"
-})); 
+  origin: [
+    "http://cis-cybersecurity.local:3000",
+    "https://cis-cybersecurity-1.onrender.com"
+  ]
+}));
+
 
 // Example endpoint
 app.get('/api/hello', (req, res) => {
