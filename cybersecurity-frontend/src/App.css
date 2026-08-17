@@ -22,10 +22,22 @@ header {
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.2s ease-in-out;
 }
 
+/* Hover effect for cards */
+.endpoint:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Section accent colors */
+.endpoint:nth-of-type(1) { background: #e6fffa; }   /* light teal */
+.endpoint:nth-of-type(2) { background: #ebf8ff; }   /* light blue */
+.endpoint:nth-of-type(3) { background: #fffaf0; }   /* light orange */
+.endpoint:nth-of-type(4) { background: #f5f3ff; }   /* light purple */
+
 .endpoint h2 {
-  color: #1e3a8a;
   margin-bottom: 10px;
 }
 
@@ -42,6 +54,18 @@ header {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   margin-top: 15px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Topic image styling */
+.topic-img {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .topic-details h3 {
@@ -73,6 +97,7 @@ button {
   cursor: pointer;
   font-size: 14px;
   margin-top: 10px;
+  transition: background-color 0.2s ease-in-out;
 }
 
 button:hover {
@@ -92,9 +117,3 @@ select {
 .api-viewer section {
   margin-bottom: 25px;
 }
-
-/* Extra polish: distinct accents per section */
-.endpoint:nth-of-type(1) h2 { color: #2c7a7b; }   /* Catalog green */
-.endpoint:nth-of-type(2) h2 { color: #1e3a8a; }   /* Topics blue */
-.endpoint:nth-of-type(3) h2 { color: #dd6b20; }   /* Summary orange */
-.endpoint:nth-of-type(4) h2 { color: #6b46c1; }   /* Advantages purple */
